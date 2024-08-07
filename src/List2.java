@@ -1,10 +1,11 @@
-public class Question2 {
+public class List2 {
     Cell firstCell;
 
-    public Question2() {
+    public List2() {
         this.firstCell = null;
     }
 
+    // This method inserts the elements neatly.
     public void insertOrdered(int value) {
         Cell elementCell = new Cell(value);
 
@@ -38,12 +39,14 @@ public class Question2 {
         return (firstCell == null);
     }
 
+    // This method inserts in the beginning of the list.
     public void insertAtBeginning(int value) {
         Cell elementCell = new Cell(value);
         elementCell.next = firstCell;
         firstCell = elementCell;
     }
 
+    // This method removes at the beginning of the list.
     public void insertAtEnding(int value) {
         Cell elementCell = new Cell(value);
         if (empty()) {
@@ -64,5 +67,18 @@ public class Question2 {
             aux = aux.next;
         }
 
+    }
+
+    // QUESTION 3: This method merges the First List (List1.java) and the Second List (List2.java).
+    public void merge(List1 list1) {
+        if (firstCell == null) {
+            firstCell = list1.firstCell;
+        } else {
+            Cell aux = firstCell;
+            while (aux.next != null) {
+                aux = aux.next;
+            }
+            aux.next = list1.firstCell;
+        }
     }
 }

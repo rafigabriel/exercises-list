@@ -1,10 +1,11 @@
-public class Question1 {
+public class List1 {
     Cell firstCell;
 
-    public Question1() {
+    public List1() {
         this.firstCell = null;
     }
 
+    //This method inserts at the end of the list.
     public void insert(int value) {
         Cell elementCell = new Cell(value);
         if (empty()) {
@@ -31,6 +32,7 @@ public class Question1 {
         return (firstCell == null);
     }
 
+    //This method removes at the end of the list.
     public void remove() {
         if (empty()) {
             firstCell = null;
