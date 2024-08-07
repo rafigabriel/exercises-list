@@ -1,5 +1,6 @@
 public class Question1 {
     Cell firstCell;
+
     public Question1() {
         this.firstCell = null;
     }
