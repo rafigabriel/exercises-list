@@ -1,22 +1,28 @@
 public class Question1 {
-
     Cell firstCell;
-
     public Question1() {
         this.firstCell = null;
     }
 
-    public void add(int value) {
-        Cell elementsCell = new Cell(value);
+    public void insert(int value) {
+        Cell elementCell = new Cell(value);
         if (empty()) {
-            firstCell = elementsCell;
+            firstCell = elementCell;
         } else {
             Cell aux = firstCell;
             while (aux.next != null) {
                 aux = aux.next;
             }
+            aux.next = elementCell;
+        }
 
-            aux.next = elementsCell;
+    }
+
+    public void print() {
+        Cell aux = firstCell;
+        while (aux != null) {
+            System.out.println("Value: " + aux.value);
+            aux = aux.next;
         }
     }
 
@@ -24,34 +30,15 @@ public class Question1 {
         return (firstCell == null);
     }
 
-    public boolean removeAtEnding() {
-
+    public void remove() {
         if (empty()) {
-            return false;
+            firstCell = null;
         } else {
-            Cell prev = firstCell;
-            Cell aux = firstCell.next;
-            if (aux != null) {
-                while (aux.next != null) {
-                    prev = aux;
-                    aux = aux.next;
-                }
-                prev.next = null;
+            Cell aux = firstCell;
+            while (aux.next.next != null) {
+                aux = aux.next;
             }
-            else {
-                aux = firstCell;
-                firstCell = null;
-            }
-            return true;
-        }
-
-    }
-
-    public void impress() {
-        Cell aux = firstCell;
-        while (aux != null) {
-            System.out.println("Value: " + aux.value);
-            aux = aux.next;
+            aux.next = null;
         }
     }
 
