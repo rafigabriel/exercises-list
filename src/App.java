@@ -2,8 +2,8 @@ public class App {
     public static void main(String[] args) {
 
         // QUESTION 1:
-        
-            List1 list1 = new List1();
+            LinkedList linkedList = new LinkedList();
+            List list1 = new List();
             int[] elements = { 12, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
             for (int i = 0; i < elements.length; i++) {
                 list1.insert(elements[i]);
@@ -23,7 +23,7 @@ public class App {
 
         // QUESTION 2:
 
-            List2 list2 = new List2();
+            List list2 = new List();
             list2.insertOrdered(10);
             list2.insertOrdered(45);
             list2.insertOrdered(366);
@@ -34,17 +34,12 @@ public class App {
             System.out.println("Second list created and the elements were inserted neatly:");
             System.out.println("-----------------------------------------------");
             list2.print();
+            System.out.println("-----------------------------------------------");
         //--------------------------------------------------------------------------
 
-        // QUESTION 3: It needs the two questions above to work.
-            /*list2.merge(list1);
-            System.out.println("--------------------------------------------------");
-            System.out.println("Joined lists:");
-            list2.print();*/
-            //--------------------------------------------------------------------------
-            list2.mergeOrdered(list1);
-            System.out.println("Lists merged neatly : ");
-            list2.print();
+        List mergedLists = linkedList.merge(list1, list2);
+        System.out.println("Merged lists: ");
+        mergedLists.print();
 
         
     }
