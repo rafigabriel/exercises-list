@@ -1,32 +1,12 @@
-public class List{
+public class List {
     Cell firstCell;
 
-    public List(){
+    public List() {
         this.firstCell = null;
     }
 
-    public boolean empty(){
+    public boolean empty() {
         return (firstCell == null);
-    }
-
-    public void insert(int value){
-        Cell elementCell = new Cell(value);
-        if(empty()){
-            firstCell = elementCell;
-        }
-        else{
-            Cell aux = firstCell;
-            while (aux.next!= null) {
-                aux = aux.next;
-            }
-            aux.next = elementCell;
-        }
-    }
-
-    public void insertAtBeginning(int value) {
-        Cell elementCell = new Cell(value);
-        elementCell.next = firstCell;
-        firstCell = elementCell;
     }
 
     public void insertAtEnding(int value) {
@@ -40,6 +20,12 @@ public class List{
             }
             aux.next = elementCell;
         }
+    }
+
+    public void insertAtBeginning(int value) {
+        Cell elementCell = new Cell(value);
+        elementCell.next = firstCell;
+        firstCell = elementCell;
     }
 
     public void insertOrdered(int value) {
@@ -58,15 +44,17 @@ public class List{
                 }
             } else {
                 while (aux2.next != null && aux2.value < elementCell.value) {
-                    aux = aux.next;
+                    aux = aux2;
                     aux2 = aux2.next;
                 }
+
                 if (aux2.next == null && aux2.value < elementCell.value) {
                     insertAtEnding(value);
                 } else {
                     aux.next = elementCell;
                     elementCell.next = aux2;
                 }
+                
             }
         }
     }
